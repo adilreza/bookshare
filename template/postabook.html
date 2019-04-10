@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+	{% load staticfiles %}
+
+       
+        <link rel="stylesheet" type="text/css" href="{% static 'bootstrap4/bootstrap.min.css'%}">
+        <link rel="stylesheet" href="{% static 'bootstrap4/bootstrap.bundle.min.js'%}">
+        <link rel="stylesheet" href="{% static 'bootstrap4/bootstrap.min.js'%}">
+        
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" media="all" />
+
+        <link rel="stylesheet" type="text/css" href="{% static 'customecss/common.css' %}">
+
+        <script src="{% static 'sweetalert2/sweetalert2.min.js'%}"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'sweetalert2/sweetalert2.css'%}">
+
+	
+	<title>Post For Buy Or sell</title>
+</head>
+
+<style type="text/css">
+    
+.mainul ul li a
+{
+    color: red;
+    font-size: 15px;
+}
+#nnv
+    {
+        color: azure;
+        font-weight: bold;
+        
+    }
+
+
+    
+</style>
+
+
+<body style="background: #E0E0E0" >
+
+   
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+   <a class="navbar-brand" style="margin-right: 50px;" href="/home/"><span style="color:red;font-weight: bold;font-size: 35px;">B</span><span style="color:crimson;color:aqua">_Lovers</span></a>
+   
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse mainul" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/home/" id="nnv">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" id="nnv">Link</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a id="nnv" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="#" id="nnv">Disabled</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="#" id="nnv">Disabled</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="#" id="nnv">Disabled</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/userpanel/" style="color: #DC3545;" id="nnv">My Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/logout/" id="nnv">Log Out</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+   
+
+  
+  <div class="container">
+     
+     <div class="row">
+      
+      <div class="col-md-10" style="background: #EEEEEE;padding-bottom: 3em; ">
+          
+        <form action="/uploadonline/" method="post" enctype="multipart/form-data">
+             {%csrf_token%}
+             
+          <div class="form-row">
+            <div class="form-group col-md-6">
+           
+                <label for="inputEmail4"><p class="font-weight-bold mb-0">Email Address</p></label>
+              <input type="email" name="usermail" value="{{request.session.wow}}" class="form-control" id="inputEmail4" placeholder="Email">
+           
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword4"><p class="font-weight-bold mb-0">Phone Number(<span style="color:red;font-size: 12px;font-weight: bold">opt</span>)</p></label>
+              <input name="userphone" type="text" class="form-control" id="inputPassword4" placeholder="+880">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="inputAddress"><p class="font-weight-bold mb-0">Comment About This book(<span style="color:red;font-size: 12px;font-weight: bold">type</span>)</p></label>
+              <textarea name="usercomment" type="text" class="form-control" id="inputAddress" placeholder="what types of of book comedy/ romance/ fictions" rows='6'></textarea>
+          </div>
+          <div class="form-group">
+              <label for="booktitle"><p class="font-weight-bold mb-0">Book Title<span style="color:red;font-size: 12px;font-weight: bold">*</span></p></label>
+                <input required type="text" name="booktitle" id="booktitle" class="form-control" placeholder="Booktitle">
+          </div>
+          
+            <div class="form-group">
+              <label for="booktitlew"><p class="font-weight-bold mb-0">Writter Name..<span style="color:red;font-size: 12px;font-weight: bold">*</span></p></label>
+                <input required type="text" name="bookwritter" id="booktitlew" class="form-control" placeholder="Book's writter Name">
+            </div>
+          
+          <div class="form-group">
+            <label for="inputAddress2"><p class="font-weight-bold mb-0"> Contact Information..</p></label>
+              <textarea name="usercontactinfo" type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"></textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputCity"><p class="font-weight-bold mb-0" >Buying Price</p></label>
+              <input name="bookprice" type="text" class="form-control" id="inputCity" placeholder="BDT">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputState"><p class="font-weight-bold mb-0">Choose an Option</p></label>
+              <select name="useroption" required id="inputState" class="form-control">
+                <option selected>Choose...</option>
+                <option value="Exchange book">Exchange book</option>
+                <option value="Sell book">Sell book</option>
+                <option value="Donate book">Donate book</option>
+              </select>
+              </div>
+          </div>
+          
+        <div class="form-group bg-none">
+            <label for="inputAddress25"><p class="font-weight-bold mb-0">Front Image </p></label>
+              <input name="bookimage" style="background: none;" type="file" class="form-control" id="inputAddress25" >
+        </div>
+          
+          <div class="form-group">
+            <div class="form-check">
+              <input value="yes" name="usertimelinecheck" class="form-check-input" type="checkbox" id="gridCheck">
+              <label class="form-check-label" for="gridCheck">
+               <p class="font-weight-bold mb-0">Add it to Your Account</p>
+              </label>
+            </div>
+          </div>
+          <input type="submit" class="btn btn-primary btn-block" style="font-size: 20px;font-weight: bold" value="Post Now">
+        </form>
+
+      </div>
+      
+      <div class="col-md-2" style="background: #444444">
+         <div ><p id="demo" style="color: orangered;font-size: 30px;font-weight: bold"></p></div>
+        {%if confirmation%}
+          <script type="text/javascript">
+            document.getElementById('demo').innerHTML="Ok succefully insrted as public and your timeline"
+          </script>
+        {%endif%}
+        
+      </div>
+      </div>
+      
+  </div>
+  
+   
+    
+</body>
+
+
+
+</html>

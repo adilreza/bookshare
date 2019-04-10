@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>tst</title>
+	
+	{%block stylesheett%}
+	
+	{%endblock%}
+	
+</head>
+<body>
+	
+<form method="post" action="/upload/" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="picture">
+    <button type="submit">Upload</button>
+</form>
+
+  <p><a href="/home/">Return to home</a></p>
+	
+	
+	
+</body>
+</html>

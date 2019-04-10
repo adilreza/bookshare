@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	
+	<meta charset="UTF-8">
+	{% load staticfiles %}
+   
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+	
+	
+    <link rel="stylesheet" type="text/css" href="{% static 'customecss/common.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    
+    <link rel="icon" href="{% static 'image/product-hugerect-272259-105829-1386428545-a345d54b1c919d6ba42eba883428f368.jpg'%}">
+	
+	<script src="{% static 'sweetalert2/sweetalert2.min.js'%}"></script>
+	<link rel="stylesheet" type="text/css" href="{% static 'sweetalert2/sweetalert2.css'%}">
+	
+	<title>Registration Page</title>
+	
+</head>
+<body class='thisislogin'>
+	
+	
+<nav  class="navbar navbar-expand-lg navbar-light" id="cusnav">
+  <a class="navbar-brand" style="margin-right: 50px;" href="#"><span style="color:red;font-weight: bold;font-size: 35px;">B</span><span style="color:crimson;color:aqua">_Lovers</span></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" style="color:white;font-family:italic;font-size:16px;" href="/home/">HomePage</a>
+      <a class="nav-item nav-link" style="color:white;font-family:italic;font-size:16px;" href="#">Website</a>
+      <a class="nav-item nav-link" style="color:white;font-family:italic;font-size:16px;" href="#">PortFolio</a>
+      <a class="nav-item nav-link disabled" style="color:white;font-family:italic;font-size:16px;" href="#">Blog</a>
+    </div>
+  </div>
+  
+  
+  
+</nav>
+
+
+
+<div class="container">
+
+	<div class="row">
+		<div class="col-md-3">
+			
+			{%if msgrlog2 %}
+					<script language="javascript">
+						
+						swal('Wrong!!','Unidentified','error');
+						
+						 setTimeout(function(){ 
+							window.location.href='/registration/' 
+					 },2000); 
+					
+					</script>
+			{%endif%}
+			
+			
+			
+		</div>
+		
+		<div class="col-md-6">
+			<div class="card border-success">
+				<div class="card-header bg-info" >
+				
+					<h2 style="font-family:italic;" class="">User Login Form</h2>
+				
+				</div>
+				
+				<div class="card-body " style="background:#ECEEEF;">
+					
+					<form action="/login/" method="post" class="border-success">
+						{%csrf_token%}
+						<div class="form-group">
+							<label for="mail" style="font-weight:bold;font-size:15px;">YOur Valid Gmail</label>
+							<div class="input-group">
+
+								<div class="input-group-prepend">
+									<span class="input-group-text" id="basic-addon1">@@</span>
+								</div>
+								
+								<input required name="loggmail" type="email" class="form-control" placeholder="Registrated gmail" id="mail" />
+							</div>
+							
+						</div>
+						
+						<div class="form-group">
+							
+							<label for="pass" style="font-weight:bold;font-size:15px;">Your Password</label>
+							<input name="logpass" type="password" class="form-control" placeholder="*******"  id="pass"/>
+							
+						</div>
+						
+						
+						<input type="submit" value="Login Now" class="btn btn-primary btn-block mb-5 btn-lg">
+					</form>
+
+				</div>
+				<div class="card-footer bg-info">
+					
+					<a href="/registration/" ><h5 style="text-align:center;color:white;text-decoration:underline">If not, sign In</h5></a>
+					
+				</div>
+				
+			</div>
+		
+		</div>
+		
+		<div class="col-md-3">
+		</div>
+		
+	
+	</div>
+
+</div>
+
+	
+	
+</body>
+</html>

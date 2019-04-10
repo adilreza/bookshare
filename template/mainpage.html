@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+	{% load staticfiles %}
+
+       
+        <link rel="stylesheet" type="text/css" href="{% static 'bootstrap4/bootstrap.min.css'%}">
+        <link rel="stylesheet" href="{% static 'bootstrap4/bootstrap.bundle.min.js'%}">
+        <link rel="stylesheet" href="{% static 'bootstrap4/bootstrap.min.js'%}">
+        
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" media="all" />
+
+        <link rel="stylesheet" type="text/css" href="{% static 'customecss/common.css' %}">
+
+        <script src="{% static 'sweetalert2/sweetalert2.min.js'%}"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'sweetalert2/sweetalert2.css'%}">
+
+	
+	<title>Main page</title>
+</head>
+
+<style type="text/css">
+    
+.mainul ul li a
+{
+    color: red;
+    font-size: 15px;
+}
+#nnv
+    {
+        color: azure;
+        font-weight: bold;
+        
+    }
+
+
+    
+</style>
+
+
+<body style="background: #EAEAEA;" >
+
+   
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+   <a class="navbar-brand" style="margin-right: 50px;" href="/home/"><span style="color:red;font-weight: bold;font-size: 35px;">B</span><span style="color:crimson;color:aqua">_Lovers</span></a>
+   
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse mainul" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/home/" id="nnv">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" id="nnv">Link</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a id="nnv" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="#" id="nnv">Disabled</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="#" id="nnv">Disabled</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="#" id="nnv">Disabled</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="#" id="nnv">Disabled</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/logout/" id="nnv">Log Out</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" id="nnv" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+   
+
+   
+    
+
+
+    <div class="containerr" style="width: 85%;margin: 0 auto;">
+        
+        <div class="row">
+            {%for publicbook in allpost%}
+                <div class="col-md-3 mt-4">
+
+                    <div class="card" style="width: 19rem;">
+                      <img class="card-img-top" src="{{publicbook.bookimage.url}}" style="height: 250px;width: 18em;margin: auto" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title" style="margin-top: -10px;">{{publicbook.booktitle|safe|truncatewords:3}}</h5>
+                        <p class="card-text" style="margin-top: -5px; ">{{publicbook.usercomment|safe|truncatewords:13}}</p>
+                        <form action="/details_selected/" method="post">
+                           {%csrf_token%}
+                            <input type="hidden" name="uid" value="{{publicbook.id}}">
+                            <input type="submit" value="Details about Book ">
+                        </form>
+                        
+                        <a href="#" class="card-link">want t0 :- <span style="color: red;font-weight: bold;font-family: spb;">{{publicbook.useroption}}</span></a>
+                      </div>
+                      <h6 style="background: #DC3545;color:white;text-align: center">{{publicbook.time}}</h6>
+                    </div>
+                </div>
+            
+            {%endfor%}
+            
+        </div>
+        
+        
+    </div>
+    
+</body>
+
+</html>

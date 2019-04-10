@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+	{% load staticfiles %}
+
+       
+        <link rel="stylesheet" type="text/css" href="{% static 'bootstrap4/bootstrap.min.css'%}">
+        <link rel="stylesheet" href="{% static 'bootstrap4/bootstrap.bundle.min.js'%}">
+        <link rel="stylesheet" href="{% static 'bootstrap4/bootstrap.min.js'%}">
+        
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" media="all" />
+
+        <link rel="stylesheet" type="text/css" href="{% static 'customecss/common.css' %}">
+
+        <script src="{% static 'sweetalert2/sweetalert2.min.js'%}"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'sweetalert2/sweetalert2.css'%}">
+
+	
+	<title>User Panel</title>
+</head>
+
+<style type="text/css">
+    
+.mainul ul li a
+{
+    color: red;
+    font-size: 15px;
+}
+#nnv
+    {
+        color: azure;
+        font-weight: bold;
+        
+    }
+
+
+    
+</style>
+
+<style type="text/css">
+		html,body{
+			height: 100%;
+		}
+		#Wrapper{
+			min-height: 100%;
+			position: relative;
+		}
+		.post{
+			box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+			border-radius: 8px;
+		}
+		.post:hover{
+			box-shadow: 0 10px 16px rgba(0, 0, 0, 0.15);
+		}
+		.footer{
+			margin-top: 100px;
+			padding: 10px;
+			height: auto;
+			width: 100%;
+			position: absolute;
+			background: black;
+		}
+    #doublimge
+    {
+        transition: 1.5s;
+        
+    }
+    #doublimge:hover
+    {
+        transform: scale(1.4);
+        transform: rotateX(360deg)
+        transition:1s;
+        cursor: pointer;
+    }
+</style>
+
+
+<body style="background: #F2F2F2;" >
+
+<div id="Wrapper">
+   
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+   <a class="navbar-brand" style="margin-right: 50px;" href="/home/"><span style="color:red;font-weight: bold;font-size: 35px;">B</span><span style="color:crimson;color:aqua">_Lovers</span></a>
+   
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse mainul" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/home/" id="nnv">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" id="nnv">Link</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a id="nnv" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="#" id="nnv">Disabled</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/mainpage/" id="nnv">All_Public_Post</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/postabook/" style="font-family: spb;color: #DC3545;" id="nnv">Post A Book</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/logout/" id="nnv">Log Out</a>
+      </li>
+    </ul>
+   
+  </div>
+</nav>
+   
+<div class="row" style="width: 95%; margin: 20px auto;">
+		<div class="col-md-2">
+			<div class="list-group" style="box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);">
+				<a href="#" class="list-group-item list-group-item-action active">
+				Cras justo odio
+				</a>
+				<a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+				<a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+				<a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+				<a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
+
+				<a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+				<a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
+				
+				<a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+				<a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
+				
+			</div>
+		</div>
+	    {% for data in selected_data%}
+		<div class="col-md-8">
+			<div style="height:auto; width: 100%; border-radius: 5px; box-shadow: 0 8px 10px rgba(0, 0, 0, 0.15); background: #EAEAEA;">
+				<div style=" width: 100%; height: 50px; background: #007BFF; border-radius: 5px 5px 0 0; padding: 5px;">
+                    <h5 style="color: white; margin-left: 10px;">Book_Name: <span class="mt-3" style="color: red;background: black;font-size: 27px;font-style: italic;padding: 0px 15px;border-radius: 10px;">{{data.booktitle}}</span></h5>
+				</div>
+				<div style="margin-top: 20px; width: 250px; margin: 0 auto;">
+				    
+					<img class="img-thumbnail" id="doublimge" src="{{data.bookimage.url}}" width="240px;" style="height: 240px;" alt="{{data.userimage.url}}">
+				</div>
+			
+				<h5 style="padding:4px;font-style: italic; text-align: center; font-weight: bold; color: black;">Author: <span style="color: white;background: red;border-radius: 7px;padding: 0px 10px;">{{data.bookwritter}}</span></h5>
+				
+				<hr>
+				<h5 style="text-decoration: underline;text-align: left;margin-left: 20px;">{{data.usermail}}</h5>
+				<hr>
+			
+			    <h4 style="text-decoration: underline;text-align: left;margin-left: 20px;">About The Book.....</h4>
+				<h5 style="padding:4px; text-align: left; font-size: 17px;margin-left: 20px;background: #fff;border-radius: 5px 0px 0px 5px;">{{data.usercomment}}</h5>
+				
+				<h4 style="text-decoration: underline;text-align: left;margin-left: 20px;">About UserContact Info.....</h4>
+				<h5 style="padding:4px; text-align: left; font-size: 17px;margin-left: 20px;background: #fff;border-radius: 5px 0px 0px 5px;">{{data.usercontactinfo}}</h5>
+				
+				
+				<hr>
+				<div style="background: #eaeaea; height: 30px; border-radius: 0px 0px 5px 5px;">
+					<h5 style="margin-left: 22px; color: #17A2B8; font-size: 16px; padding: 5px;ba"><i>Posting-Date: {{data.time}}</i></h5>
+				</div>
+			</div>
+		</div>
+	    
+		
+		<div class="col-md-2" style="background: orange;">
+            <h1 style="color: white;font-weight: bold;font-size: 22px;margin-top: 10px;">BoOk User Review</h1>
+		    <hr>
+		   <img src="{%static 'badge-23942_960_720.png'%}" style="height: 180px; width: 140px;" alt=""> 
+		     
+		      <h2 style="color: white;font-weight: bold;font-size: 40px;margin-top: -147px;margin-left: 52px;">{{data.bookview}}</h2>
+    		 
+		</div>
+		{%endfor%}
+	</div>
+	
+	<div class="footer">
+		<h5 style="text-align: center; color: white;">&copy All right Reserved by Rohijul</h5>
+		<h6 style="color: orange; text-align: center; font-weight: bold; font-style: italic;">This is a non commercial public helping website. Thanks for visiting our website.</h6>
+	</div>
+</div>
+</body>
+</html>
